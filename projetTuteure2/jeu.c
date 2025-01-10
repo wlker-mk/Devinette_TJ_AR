@@ -1,7 +1,7 @@
 /*  Name : jeu.h
     Purpose : Ensemble des sous-programmes se rapportant
-            à la gestion du jeu de devinette
-    Authors : TCHAMIE Bindounow Gnimdou Jephté & AGBAKOSSI Ekoué Seyram Réné
+            ï¿½ la gestion du jeu de devinette
+    Authors : TCHAMIE Bindounow Gnimdou Jephtï¿½ & AGBAKOSSI Ekouï¿½ Seyram Rï¿½nï¿½
     Date    : 29/11/2024
 */
 
@@ -45,10 +45,10 @@ double calculer_ecart_type(int tentatives[], int nombre_tentatives) {
 }
 
 void afficher_menu_difficulte() {
-    printf("\nNIVEAUX DE DIFFICULTÉ :\n\n");
-    printf("1. Débutant (1 à 100)\n");
-    printf("2. Intermédiaire (1 à 500)\n");
-    printf("3. Expert (1 à 2000)\n");
-    printf("4. Personnalisé\n");
+    printf("\nNIVEAUX DE DIFFICULTï¿½ :\n\n");
+    printf("1. Dï¿½butant (1 ï¿½ 100)\n");
+    printf("2. Intermï¿½diaire (1 ï¿½ 500)\n");
+    printf("3. Expert (1 ï¿½ 2000)\n");
+    printf("4. Personnalisï¿½\n");
     printf("\nVotre choix : ");
 }

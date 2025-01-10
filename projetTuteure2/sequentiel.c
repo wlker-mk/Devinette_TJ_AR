@@ -1,7 +1,7 @@
-/*  Name : sequentiel.h
+/*  Name : sequentiel.c
     Purpose : Ensemble des sous-programmes se rapportant
-            à la création du fichier .txt créé
-    Authors : TCHAMIE Bindounow Gnimdou Jephté & AGBAKOSSI Ekoué Seyram Réné
+            ï¿½ la crï¿½ation du fichier .txt crï¿½ï¿½
+    Authors : TCHAMIE Bindounow Gnimdou Jephtï¿½ & AGBAKOSSI Ekouï¿½ Seyram Rï¿½nï¿½
     Date    : 29/11/2024
 */
 
@@ -20,6 +20,15 @@
 #define MAX_PSEUDO_LENGTH 20
 #define FILENAME "tentatives.txt"
 
+void enregistrer_pseudo(const char *pseudo, const char *password) {
+    FILE *fichier = fopen("pseudos.txt", "a");
+    if (fichier == NULL) {
+        printf("Erreur lors de l'ouverture du fichier pseudos.txt\n");
+        return;
+    }
+    fprintf(fichier, "%s %s\n", pseudo, password);
+    fclose(fichier);
+}
 
 // Fonction pour enregistrer les tentatives dans un fichier
 void enregistrer_tentatives(const char *pseudo, const int *tentatives, int nombre_tentatives, double ecart_type, int difficulte) {
@@ -33,7 +42,7 @@ void enregistrer_tentatives(const char *pseudo, const int *tentatives, int nombr
     struct tm *t = localtime(&now);
 
     fprintf(fichier, "Pseudo: %s\n", pseudo);
-    fprintf(fichier, "Niveau de difficulté: %d\n", difficulte);
+    fprintf(fichier, "Niveau de difficultï¿½: %d\n", difficulte);
     fprintf(fichier, "Date et heure: %02d-%02d-%04d %02d:%02d:%02d\n", t->tm_mday, t->tm_mon + 1, t->tm_year + 1900, t->tm_hour, t->tm_min, t->tm_sec);
     fprintf(fichier, "Nombre de tentatives: %d\n", nombre_tentatives);
     fprintf(fichier, "Tentatives: ");
@@ -45,4 +54,3 @@ void enregistrer_tentatives(const char *pseudo, const int *tentatives, int nombr
 
     fclose(fichier);
 }
-
