@@ -4,6 +4,7 @@
 #include <time.h>
 #include <string.h>
 #include <math.h>
+#include <unistd.h>
 
 #include "random.h"
 #include "sequentiel.h"
@@ -13,68 +14,78 @@
 #define MAX_PSEUDO_LENGTH 20
 #define FILENAME "tentatives.txt"
 
+
+
+
 int main() {
     int max_nombre, nombre_a_deviner, tentative, nombre_tentatives, choix, choix_difficulte;
+    int max_tentatives; // Declare max_tentatives
     int tentatives[MAX_TENTATIVES];
     char pseudo[MAX_PSEUDO_LENGTH];
+    char password[MAX_PSEUDO_LENGTH];
     char continuer = 'o';
+    time_t start_time;
 
     setlocale(LC_CTYPE,"");
     srand(time(NULL));
 
-    printf("------------------------------------------------------------------------------------------------------------------------\n");
-    printf("------------------------------------------------------------------------------------------------------------------------\n");
-    printf("------------------------------------------------------------------------------------------------------------------------\n");
-    printf("------------------------------------------------------------------------------------------------------------------------\n");
-    printf("------------------------------------------------- JEU DE DEVINETTE -----------------------------------------------------\n");
-    printf("------------------------------------------------------------------------------------------------------------------------\n");
-    printf("------------------------------------------------------------------------------------------------------------------------\n");
-    printf("------------------------------------------------------------------------------------------------------------------------\n");
-    printf("------------------------------------------------------------------------------------------------------------------------\n\n");
-
-
+    printf("\t\t\t\t\t\tJEU DE DEVINETTE\n\n");
+    do {
         do {
             afficher_menu();
             scanf("%d", &choix);
 
             switch (choix) {
                 case 1:
-                    // Saisie et validation du pseudo
+                    // Saisie et validation du pseudo et mot de passe
                     do {
                         printf("Entrez votre pseudo : ");
                         scanf("%s", pseudo);
+                        printf("Entrez votre mot de passe : ");
+                        scanf("%s", password);
                         if(pseudo_existe(pseudo)) {
-                            printf("Ce pseudo existe déjà. Choisissez-en un autre.\n");
+                            if(!password_correct(pseudo, password)) {
+                                printf("Mot de passe incorrect. Rï¿½essayez.\n");
+                                continue;
+                            }
                         } else {
-                            break;
+                            enregistrer_pseudo(pseudo, password);
                         }
+                        break;
                     } while (1);
 
-                    // Sélection du niveau de difficulté
+                    // Sï¿½lection du niveau de difficultï¿½
                     afficher_menu_difficulte();
                     scanf("%d", &choix_difficulte);
 
                     switch (choix_difficulte) {
                         case 1:
                             max_nombre = 100;
+                            max_tentatives = 5;
                             break;
                         case 2:
                             max_nombre = 500;
+                            max_tentatives = 10;
                             break;
                         case 3:
                             max_nombre = 2000;
+                            max_tentatives = 20;
                             break;
                         case 4:
-                            printf("Entrez le nombre maximum pour le niveau personnalisé : ");
+                            printf("Entrez le nombre maximum pour le niveau personnalisï¿½ : ");
                             scanf("%d", &max_nombre);
                             if (max_nombre <= 0) {
-                                printf("Valeur invalide. Niveau débutant sélectionné par défaut.\n");
+                                printf("Valeur invalide. Niveau dï¿½butant sï¿½lectionnï¿½ par dï¿½faut.\n");
                                 max_nombre = 100;
+                                max_tentatives = 5;
+                            } else {
+                                max_tentatives = -1; // Unlimited attempts
                             }
                             break;
                         default:
-                            printf("Choix invalide. Niveau débutant sélectionné par défaut.\n");
+                            printf("Choix invalide. Niveau dï¿½butant sï¿½lectionnï¿½ par dï¿½faut.\n");
                             max_nombre = 100;
+                            max_tentatives = 5;
                     }
 
                     nombre_tentatives = 0;
@@ -82,14 +93,17 @@ int main() {
 
                     printf("Devinez le nombre (entre 1 et %d) :\n", max_nombre);
 
+                    // Start the game session timer
+                    start_time = time(NULL);
+
                     // Boucle de jeu
-                    while (nombre_tentatives < MAX_TENTATIVES) {
+                    while ((max_tentatives == -1 || nombre_tentatives < max_tentatives) && difftime(time(NULL), start_time) < 300) {
                         printf("Tentative %d: ", nombre_tentatives + 1);
                         scanf("%d", &tentative);
                         tentatives[nombre_tentatives++] = tentative;
 
                         if (tentative == nombre_a_deviner) {
-                            printf("\nFélicitations, vous avez deviné le nombre!\n");
+                            printf("\nFï¿½licitations, vous avez devinï¿½ le nombre!\n");
                             break;
                         } else if (tentative < nombre_a_deviner) {
                             printf("Plus grand!\n");
@@ -98,18 +112,22 @@ int main() {
                         }
                     }
 
-                    // Messages de félicitations en fonction du nombre de tentatives
-                    if (nombre_tentatives <= 3) {
-                        printf("Vous êtes un super voyant!\n");
-                    } else if (nombre_tentatives <= 6) {
-                        printf("Vous êtes un voyant!\n");
-                    } else if (nombre_tentatives <= 9) {
-                        printf("Vous êtes un apprenti voyant!\n");
-                    } else {
-                        printf("Vous êtes un voyant pusillanime!\n");
+                    if (tentative != nombre_a_deviner) {
+                        printf("Vous avez ï¿½puisï¿½ toutes vos tentatives ou le temps est ï¿½coulï¿½. Le nombre ï¿½tait %d.\n", nombre_a_deviner);
                     }
 
-                    // Calcul de l'écart-type des tentatives
+                    // Messages de fï¿½licitations en fonction du nombre de tentatives
+                    if (nombre_tentatives <= 3) {
+                        printf("Vous ï¿½tes un super voyant!\n");
+                    } else if (nombre_tentatives <= 6) {
+                        printf("Vous ï¿½tes un voyant!\n");
+                    } else if (nombre_tentatives <= 9) {
+                        printf("Vous ï¿½tes un apprenti voyant!\n");
+                    } else {
+                        printf("Vous ï¿½tes un voyant pusillanime!\n");
+                    }
+
+                    // Calcul de l'ï¿½cart-type des tentatives
                     double ecart_type = calculer_ecart_type(tentatives, nombre_tentatives);
                     printf("Ecart-type des tentatives: %.2f\n", ecart_type);
 
@@ -123,22 +141,24 @@ int main() {
                     break;
 
                 case 3:
+                    printf("Au revoir !\n");
+                    return 0;
+
+                case 4:
                     if (remove(FILENAME) == 0) {
-                        printf("Historique supprimé avec succès.\n");
+                        printf("Historique supprimï¿½ avec succï¿½s.\n");
                     } else {
                         printf("Erreur lors de la suppression de l'historique.\n");
                     }
-                    break;
-
-                case 4:
-                    printf("Au revoir !\n");
-                    return 0;
                     break;
 
                 default:
                     printf("Choix invalide.\n");
             }
         } while (choix != 3);
+        printf("Voulez-vous jouer encore ? (O/N) : ");
+        scanf(" %c", &continuer);
+    } while (continuer == 'o' || continuer == 'O');
 
 
     return 0;

@@ -1,7 +1,7 @@
 /*  Name : sequentiel.h
     Purpose : Ensemble des sous-programmes se rapportant
-            à la manipulation et la gestion du fichier .txt créé
-    Authors : TCHAMIE Bindounow Gnimdou Jephté & AGBAKOSSI Ekoué Seyram Réné
+            ï¿½ la manipulation et la gestion du fichier .txt crï¿½ï¿½
+    Authors : TCHAMIE Bindounow Gnimdou Jephtï¿½ & AGBAKOSSI Ekouï¿½ Seyram Rï¿½nï¿½
     Date    : 29/11/2024
 */
 
@@ -19,29 +19,43 @@
 #define MAX_PSEUDO_LENGTH 20
 #define FILENAME "tentatives.txt"
 
-// Fonction pour vérifier si le pseudo existe déjà dans le fichier
+// Fonction pour vï¿½rifier si le pseudo existe dï¿½jï¿½ dans le fichier
 int pseudo_existe(const char *pseudo) {
-    FILE *fichier = fopen(FILENAME, "r");
+    FILE *fichier = fopen("pseudos.txt", "r");
     if (fichier == NULL) {
-        return 0; // Le fichier n'existe pas encore, pas de doublon
+        return 0;
     }
-
-    char ligne[100];
-    while (fgets(ligne, sizeof(ligne), fichier)) {
-        if (strstr(ligne, pseudo) != NULL) {
+    char p[MAX_PSEUDO_LENGTH], pass[MAX_PSEUDO_LENGTH];
+    while (fscanf(fichier, "%s %s", p, pass) != EOF) {
+        if (strcmp(p, pseudo) == 0) {
             fclose(fichier);
-            return 1; // Pseudo trouvé
+            return 1;
         }
     }
-
     fclose(fichier);
-    return 0; // Pseudo non trouvé
+    return 0;
+}
+
+int password_correct(const char *pseudo, const char *password) {
+    FILE *fichier = fopen("pseudos.txt", "r");
+    if (fichier == NULL) {
+        return 0;
+    }
+    char p[MAX_PSEUDO_LENGTH], pass[MAX_PSEUDO_LENGTH];
+    while (fscanf(fichier, "%s %s", p, pass) != EOF) {
+        if (strcmp(p, pseudo) == 0 && strcmp(pass, password) == 0) {
+            fclose(fichier);
+            return 1;
+        }
+    }
+    fclose(fichier);
+    return 0;
 }
 
 void afficher_scores() {
     FILE *fichier = fopen(FILENAME, "r");
     if (fichier == NULL) {
-        printf("Aucun historique trouvé.\n");
+        printf("Aucun historique trouvï¿½.\n");
         return;
     }
 
@@ -53,4 +67,3 @@ void afficher_scores() {
 
     fclose(fichier);
 }
-

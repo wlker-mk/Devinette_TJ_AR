@@ -1,13 +1,14 @@
 /*  Name : sequentiel.h
     Purpose : Structure et prototypes des fonctions se rapportant
-            à la création du fichier .txt créé
-    Authors : TCHAMIE Bindounow Gnimdou Jephté & AGBAKOSSI Ekoué Seyram Réné
+            ï¿½ la crï¿½ation du fichier .txt crï¿½ï¿½
+    Authors : TCHAMIE Bindounow Gnimdou Jephtï¿½ & AGBAKOSSI Ekouï¿½ Seyram Rï¿½nï¿½
     Date    : 29/11/2024
 */
 
 void enregistrer_tentatives(const char *pseudo, const int *tentatives, int nombre_tentatives, double ecart_type, int difficulte);
-/*  But : Cré et enrégistre les pseudos et les scores
-    Parametres: le pseudo, le nombre de tentative, les tentatives entrées, l'écart type
+/*  But : Crï¿½ et enrï¿½gistre les pseudos et les scores
+    Parametres: le pseudo, le nombre de tentative, les tentatives entrï¿½es, l'ï¿½cart type
     Return: Rien
  */
 
+void enregistrer_pseudo(const char *pseudo, const char *password);

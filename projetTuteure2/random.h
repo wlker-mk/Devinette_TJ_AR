@@ -1,19 +1,24 @@
 /*  Name : sequentiel.h
     Purpose : Structure et prototypes des fonctions se rapportant
-            à la manipulation et la gestion du fichier .txt créé
-    Authors : TCHAMIE Bindounow Gnimdou Jephté & AGBAKOSSI Ekoué Seyram Réné
+            ï¿½ la manipulation et la gestion du fichier .txt crï¿½ï¿½
+    Authors : TCHAMIE Bindounow Gnimdou Jephtï¿½ & AGBAKOSSI Ekouï¿½ Seyram Rï¿½nï¿½
     Date    : 29/11/2024
 */
 
 int pseudo_existe(const char *pseudo);
-/*  But : Vérifie si le pseudo entré existe déja
+/*  But : Vï¿½rifie si le pseudo entrï¿½ existe dï¿½ja
     Parametres: le pseudo
+    Return: La valeur 0
+ */
+
+int password_correct(const char *pseudo, const char *password);
+/*  But : Vï¿½rifie si le mot de passe entrï¿½ est correct
+    Parametres: le pseudo, le mot de passe
     Return: La valeur 0
  */
 
 void afficher_scores();
 /*  But : Affiche l'historique des pseudo et des utilisateurs
-    Parametres: le pseudo, le nombre de tentative, les tentatives entrées, l'écart type
+    Parametres: le pseudo, le nombre de tentative, les tentatives entrï¿½es, l'ï¿½cart type
     Return: Rien
  */
-
