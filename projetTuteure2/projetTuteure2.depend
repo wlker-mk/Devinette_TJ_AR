@@ -1,0 +1,133 @@
+# depslib dependency file v1.0
+1733241469 source:d:\codage\languagec\projettuteure2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"random.h"
+	"sequentiel.h"
+	"jeu.h"
+
+1733240191 d:\codage\languagec\projettuteure2\sequentiel.h
+
+1733240673 source:d:\codage\languagec\projettuteure2\sequentiel.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"sequentiel.h"
+
+1733240715 source:d:\codage\languagec\projettuteure2\jeu.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"jeu.h"
+
+1733240715 source:d:\codage\languagec\projettuteure2\random.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"random.h"
+
+1733240163 d:\codage\languagec\projettuteure2\jeu.h
+
+1733240391 d:\codage\languagec\projettuteure2\random.h
+
+1735771254 source:d:\semestre3\projet tuteure inf1329\projettuteure2\jeu.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"jeu.h"
+
+1735768497 d:\semestre3\projet tuteure inf1329\projettuteure2\jeu.h
+
+1735771239 source:d:\semestre3\projet tuteure inf1329\projettuteure2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"random.h"
+	"sequentiel.h"
+	"jeu.h"
+
+1733240391 d:\semestre3\projet tuteure inf1329\projettuteure2\random.h
+
+1735770584 d:\semestre3\projet tuteure inf1329\projettuteure2\sequentiel.h
+
+1733240715 source:d:\semestre3\projet tuteure inf1329\projettuteure2\random.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"random.h"
+
+1735770937 source:d:\semestre3\projet tuteure inf1329\projettuteure2\sequentiel.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"sequentiel.h"
+
+1735817846 source:c:\users\lenovo\downloads\doc\semestre3\projet tutoré\projettuteure1\projettuteure2\jeu.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"jeu.h"
+
+1735817846 c:\users\lenovo\downloads\doc\semestre3\projet tutoré\projettuteure1\projettuteure2\jeu.h
+
+1735817846 source:c:\users\lenovo\downloads\doc\semestre3\projet tutoré\projettuteure1\projettuteure2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"random.h"
+	"sequentiel.h"
+	"jeu.h"
+
+1735817847 c:\users\lenovo\downloads\doc\semestre3\projet tutoré\projettuteure1\projettuteure2\random.h
+
+1735817847 c:\users\lenovo\downloads\doc\semestre3\projet tutoré\projettuteure1\projettuteure2\sequentiel.h
+
+1735817847 source:c:\users\lenovo\downloads\doc\semestre3\projet tutoré\projettuteure1\projettuteure2\random.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"random.h"
+
+1735817847 source:c:\users\lenovo\downloads\doc\semestre3\projet tutoré\projettuteure1\projettuteure2\sequentiel.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"sequentiel.h"
+
