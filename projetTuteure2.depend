@@ -177,3 +177,67 @@
 	"sequentiel.h"
 	"jeu.h"
 
+1738773266 source:d:\semestre3\projet tuteure inf1329\devinette_tj_ar\devinette_tj_ar\jeu.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	<stdbool.h>
+	"jeu.h"
+	"sequentiel.h"
+	"random.h"
+
+1738764716 d:\semestre3\projet tuteure inf1329\devinette_tj_ar\devinette_tj_ar\jeu.h
+
+1738764716 d:\semestre3\projet tuteure inf1329\devinette_tj_ar\devinette_tj_ar\sequentiel.h
+
+1738764716 d:\semestre3\projet tuteure inf1329\devinette_tj_ar\devinette_tj_ar\random.h
+
+1738764716 source:d:\semestre3\projet tuteure inf1329\devinette_tj_ar\devinette_tj_ar\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	<unistd.h>
+	"random.h"
+	"sequentiel.h"
+	"jeu.h"
+
+1738772579 source:d:\semestre3\projet tuteure inf1329\devinette_tj_ar\devinette_tj_ar\random.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"jeu.h"
+	"sequentiel.h"
+	"random.h"
+
+1738773502 source:d:\semestre3\projet tuteure inf1329\devinette_tj_ar\devinette_tj_ar\sequentiel.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	"jeu.h"
+	"sequentiel.h"
+	"random.h"
+
+1738773502 source:d:\semestre3\projet tuteure inf1329\devinette_tj_ar\devinette_tj_ar\devinette.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<time.h>
+	<string.h>
+	<math.h>
+	<unistd.h>
+	"random.h"
+	"sequentiel.h"
+	"jeu.h"
+

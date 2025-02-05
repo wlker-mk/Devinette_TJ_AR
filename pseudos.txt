@@ -1,3 +1,6 @@
 Pseudo: jefto Password: jefto
 Pseudo: jefto Password: jefto
 Pseudo: jefto Password: jefto
+Pseudo: 2.0 Password: 2.0
+Pseudo: 2.0 Password: 2.0
+Pseudo: 2.0 Password: 2.0

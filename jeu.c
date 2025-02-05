@@ -23,9 +23,9 @@
 
 
 void afficher_menu() {
-    printf("\n--------------");
-    printf("\n-----MENU-----");
-    printf("\n--------------\n\n");
+    //printf("\n--------------");
+    printf("\n-----MENU-----\n\n");
+    //printf("\n--------------\n\n");
     printf("1. Jouer\n");
     printf("2. Afficher les scores\n");
     printf("3. Supprimer l'historique des jeux\n");
@@ -49,11 +49,11 @@ double calculer_ecart_type(int tentatives[], int nombre_tentatives) {
 }
 
 void afficher_menu_difficulte() {
-    printf("\nNIVEAUX DE DIFFICULTE :\n\n");
-    printf("1. Débutant (1 à 100)\n");
-    printf("2. Intermédiaire (1 à 500)\n");
-    printf("3. Expert (1 à 2000)\n");
-    printf("4. Personnalisé\n");
+    printf("\n-----NIVEAUX DE DIFFICULTE-----\n\n");
+    printf("1. Debutant (1 - 100)\n");
+    printf("2. Intermediaire (1 - 500)\n");
+    printf("3. Expert (1 - 2000)\n");
+    printf("4. Personnalise\n");
     printf("\nVotre choix : ");
 }
 
@@ -77,10 +77,10 @@ void choisir_difficulte(int *max_nombre, int *max_tentatives) {
             *max_tentatives = 20;
             break;
         case 4:
-            printf("Entrez le nombre maximum pour le niveau personnalisé : ");
+            printf("Entrez le nombre maximum pour le niveau personnalise : ");
             scanf("%d", max_nombre);
             if (*max_nombre <= 0) {
-                printf("Valeur invalide. Niveau débutant sélectionné par défaut.\n");
+                printf("Valeur invalide. Niveau debutant selectionner par defaut.\n");
                 *max_nombre = 100;
                 *max_tentatives = 5;
             } else {
@@ -88,7 +88,7 @@ void choisir_difficulte(int *max_nombre, int *max_tentatives) {
             }
             break;
         default:
-            printf("Choix invalide. Niveau débutant sélectionné par défaut.\n");
+            printf("Choix invalide. Niveau debutant selectionner par defaut.\n");
             *max_nombre = 100;
             *max_tentatives = 5;
     }
@@ -98,7 +98,7 @@ void choisir_difficulte(int *max_nombre, int *max_tentatives) {
 void boucle_de_jeu(int max_nombre, int max_tentatives, int nombre_a_deviner, int *tentatives, int *nombre_tentatives) {
     time_t start_time = time(NULL);
     int tentative;
-    bool nbre_trouver = false; 
+    bool nbre_trouver = false;
 
     printf("Devinez le nombre (entre 1 et %d) :\n", max_nombre);
 
@@ -109,8 +109,8 @@ void boucle_de_jeu(int max_nombre, int max_tentatives, int nombre_a_deviner, int
         tentatives[(*nombre_tentatives)++] = tentative;
 
         if (tentative == nombre_a_deviner) {
-            printf("\nFélicitations, vous avez deviné le nombre!\n");
-            nbre_trouver = true; 
+            printf("\nFelicitations, vous avez deviner le nombre!\n");
+            nbre_trouver = true;
             break;
         } else if (tentative < nombre_a_deviner) {
             printf("Plus grand!\n");
@@ -121,18 +121,18 @@ void boucle_de_jeu(int max_nombre, int max_tentatives, int nombre_a_deviner, int
 
     // Message de fin de jeu
     if (!nbre_trouver && (max_tentatives != -1 && *nombre_tentatives >= max_tentatives)) {
-        printf("Vous avez épuisé toutes vos tentatives ou le temps est écoulé. Le nombre était %d.\n", nombre_a_deviner);
+        printf("Vous avez epuiser toutes vos tentatives. Le nombre etait %d.\n", nombre_a_deviner);
     }
 
     if (nbre_trouver) {
         if (*nombre_tentatives <= 3) {
-            printf("Vous êtes un super voyant!\n");
+            printf("\n--Vous etes un super voyant!--\n");
         } else if (*nombre_tentatives <= 6) {
-            printf("Vous êtes un voyant!\n");
+            printf("\n--Vous etes un voyant!--\n");
         } else if (*nombre_tentatives <= 9) {
-            printf("Vous êtes un apprenti voyant!\n");
+            printf("\n--Vous etes un apprenti voyant!--\n");
         } else {
-            printf("Vous êtes un voyant pusillanime!\n");
+            printf("\n--Vous etes un voyant pusillanime!--\n");
         }
     }
 }
@@ -143,9 +143,9 @@ void saisir_et_valider_pseudo(char *pseudo, char *password) {
     int choix;
 
     while (!valid) {
-        printf("1. Vérifier si votre pseudo existe\n");
-        printf("2. Créer un nouveau pseudo\n");
-        printf("Votre choix : ");
+        printf("1. Verifier si votre pseudo existe\n");
+        printf("2. Creer un nouveau pseudo\n");
+        printf("\nVotre choix : ");
         scanf("%d", &choix);
 
         if (choix == 1) {
@@ -155,28 +155,28 @@ void saisir_et_valider_pseudo(char *pseudo, char *password) {
                 printf("Entrez votre mot de passe : ");
                 scanf("%s", password);
                 if (password_correct(pseudo, password)) {
-                    printf("Connexion réussie.\n");
+                    printf("\nConnexion reussie.\n");
                     valid = true; // Set the flag to exit the loop
                 } else {
-                    printf("Mot de passe incorrect. Réessayez.\n");
+                    printf("Mot de passe incorrect. Reessayez.\n");
                 }
             } else {
-                printf("Pseudo non trouvé. Réessayez ou créez un nouveau pseudo.\n");
+                printf("Pseudo non trouver. Reessayez ou creez un nouveau pseudo.\n");
             }
         } else if (choix == 2) {
             printf("Entrez votre nouveau pseudo : ");
             scanf("%s", pseudo);
             if (pseudo_existe(pseudo)) {
-                printf("Ce pseudo existe déjà. Réessayez.\n");
+                printf("Ce pseudo existe deja. Reessayez.\n");
             } else {
                 printf("Entrez votre mot de passe : ");
                 scanf("%s", password);
                 enregistrer_pseudo(pseudo, password);
-                printf("Pseudo créé avec succès.\n");
+                printf("Pseudo creer avec succes.\n");
                 valid = true; // Set the flag to exit the loop
             }
         } else {
-            printf("Choix invalide. Réessayez.\n");
+            printf("Choix invalide. Reessayez.\n");
         }
     }
 }

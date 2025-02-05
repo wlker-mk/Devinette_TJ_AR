@@ -1,3 +1,10 @@
+/*  Name : devinette.c
+    Purpose : Fichier principal du jeu de devinette
+    Authors : TCHAMIE Bindounow Gnimdou Jephté & AGBAKOSSI Ekoué Seyram Réné
+    Date    : 29/11/2024
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -29,7 +36,9 @@ int main() {
     setlocale(LC_CTYPE,"");
     srand(time(NULL));
 
-    printf("\t\t\t\t\t\tJEU DE DEVINETTE\n\n");
+    printf("\t\t\t\t\t\t\t--------------------\n\n");
+    printf("\t\t\t\t\t\t\t| JEU DE DEVINETTE |\n\n");
+    printf("\t\t\t\t\t\t\t--------------------\n\n");
     do {
         do {
             afficher_menu();
@@ -64,9 +73,9 @@ int main() {
 
                 case 3:
                     if (remove(FILENAME) == 0) {
-                        printf("Historique supprimé avec succés.\n");
+                        printf("\nHistorique supprimer avec succes.\n");
                     } else {
-                        printf("Erreur lors de la suppression de l'historique.\n");
+                        printf("\nErreur lors de la suppression de l'historique.\n");
                     }
                     break;
 
@@ -77,7 +86,7 @@ int main() {
                     printf("Choix invalide.\n");
             }
         } while (choix != 3);
-        printf("Voulez-vous jouer encore ? (O/N) : ");
+        printf("\nVoulez-vous jouer encore ? (O/N) : ");
         scanf(" %c", &continuer);
     } while (continuer == 'o' || continuer == 'O');
 

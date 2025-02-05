@@ -21,7 +21,7 @@
 #define MAX_PSEUDO_LENGTH 20
 #define FILENAME "tentatives.txt"
 
-// Fonction pour v�rifier si le pseudo existe d�j� dans le fichier
+// Fonction pour vérifier si le pseudo existe déjà dans le fichier
 int pseudo_existe(const char *pseudo) {
     FILE *fichier = fopen("pseudos.txt", "r");
     if (fichier == NULL) {
@@ -57,7 +57,7 @@ int password_correct(const char *pseudo, const char *password) {
 void afficher_scores() {
     FILE *fichier = fopen(FILENAME, "r");
     if (fichier == NULL) {
-        printf("Aucun historique trouvé.\n");
+        printf("Aucun historique trouver.\n");
         return;
     }
 

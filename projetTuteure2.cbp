@@ -31,13 +31,13 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="devinette.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="jeu.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="jeu.h" />
-		<Unit filename="main.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="random.c">
 			<Option compilerVar="CC" />
 		</Unit>
