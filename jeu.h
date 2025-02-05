@@ -19,7 +19,7 @@ double calculer_ecart_type(int tentatives[], int nombre_tentatives);
  */
 
  void afficher_menu_difficulte();
-/*  But : Afficher les diff�rents niveaux de difficulté
+/*  But : Afficher les différents niveaux de difficulté
     Parametres: Aucun
     Return: Rien
 */
