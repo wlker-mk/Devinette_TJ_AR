@@ -1,0 +1,14 @@
+Pseudo: jefto
+Niveau de difficult�: 0
+Date et heure: 05-02-2025 08:20:38
+Nombre de tentatives: 1
+Tentatives: 1 
+Ecart-type: 0.00
+----------------------------------------
+Pseudo: jefto
+Niveau de difficult�: 0
+Date et heure: 05-02-2025 08:22:49
+Nombre de tentatives: 1
+Tentatives: 2 
+Ecart-type: 0.00
+----------------------------------------
