@@ -1,7 +1,7 @@
 /*  Name : sequentiel.h
     Purpose : Ensemble des sous-programmes se rapportant
-            � la manipulation et la gestion du fichier .txt cr��
-    Authors : TCHAMIE Bindounow Gnimdou Jepht� & AGBAKOSSI Ekou� Seyram R�n�
+            à la manipulation et la gestion du fichier .txt créé
+    Authors : TCHAMIE Bindounow Gnimdou Jephté & AGBAKOSSI Ekoué Seyram Réné
     Date    : 29/11/2024
 */
 
